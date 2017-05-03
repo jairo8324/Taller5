@@ -36,7 +36,7 @@ public class Registro extends AppCompatActivity {
 
 public void  registrar (View v){
 
-    String nombre, apellido, aux ="";
+    String nombre, apellido, aux ="",foto;
     int ed;
     nombre =nomb.getText().toString().trim();
     apellido =apell.getText().toString().trim();
@@ -46,7 +46,9 @@ public void  registrar (View v){
     if (bailar.isChecked())     aux=aux+","+res.getString((R.string.bailar));
     if (programar.isChecked())    aux=aux+","+res.getString((R.string.programar));
 
-    Persona p =new Persona(nombre,apellido,ed,aux);
+    foto =String.valueOf(fotoAleatoria());
+
+    Persona p =new Persona(foto,nombre,apellido,ed,aux);
     p.guardar();
 
 new AlertDialog.Builder(this).setMessage(res.getString(R.string.mensaje)).show();
@@ -66,7 +68,17 @@ public void borrar (View v){
         nomb.requestFocus();
 
 
+
+
     }
+
+public  int fotoAleatoria(){
+    int fotos[] = {R.drawable.images,R.drawable.images2,R.drawable.images3};
+    int numero =(int)(Math.random()*2);
+    return fotos [numero];
+
+
+}
 
 
 }
