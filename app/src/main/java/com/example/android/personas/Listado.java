@@ -20,7 +20,7 @@ public class Listado extends AppCompatActivity {
         setContentView(R.layout.activity_listado);
 
         tabla = (TableLayout)findViewById(R.id.tblPersona);
-        personas =Datos.getPersonas();
+        personas =Datos.traerPersonas(getApplicationContext());
 
         for (int i = 0; i < personas.size() ; i++) {
 
